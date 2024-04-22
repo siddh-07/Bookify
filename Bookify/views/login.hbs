@@ -36,34 +36,34 @@
             const passwordInput = document.getElementById('password');
 
             // Add an event listener to the form for form submission
-            btn.addEventListener('click', function (event) {
-                // Initialize a flag to track validation status
-                let isValid = true;
+            // btn.addEventListener('click', function (event) {
+            //     // Initialize a flag to track validation status
+            //     let isValid = true;
 
-                // Validate the username (you can add more rules)
-                if (usernameInput.value.length < 3) {
-                    isValid = false;
-                    alert('Username must be at least 3 characters long.');
-                }
+            //     // Validate the username (you can add more rules)
+            //     if (usernameInput.value.length < 3) {
+            //         isValid = false;
+            //         alert('Username must be at least 3 characters long.');
+            //     }
 
-                // Validate the email using a simple regular expression
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(emailInput.value)) {
-                    isValid = false;
-                    alert('Please enter a valid email address.');
-                }
+            //     // Validate the email using a simple regular expression
+            //     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            //     if (!emailPattern.test(emailInput.value)) {
+            //         isValid = false;
+            //         alert('Please enter a valid email address.');
+            //     }
 
-                // Validate the password (you can add more rules)
-                // if (passwordInput.value.length < 8) {
-                //     isValid = false;
-                //     alert('Password must be at least 8 characters long.');
-                // }
+            //     // Validate the password (you can add more rules)
+            //     // if (passwordInput.value.length < 8) {
+            //     //     isValid = false;
+            //     //     alert('Password must be at least 8 characters long.');
+            //     // }
 
-                // Prevent form submission if validation fails
-                if (!isValid) {
-                    event.preventDefault();
-                }
-            });
+            //     // Prevent form submission if validation fails
+            //     if (!isValid) {
+            //         event.preventDefault();
+            //     }
+            // });
         });
     </script>
 </head>
