@@ -1,0 +1,173 @@
+
+html{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: url('../Images/Book-background-image.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/*<!-- Styles for the form heading -->*/
+.form-heading {
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 24px;
+    margin-top: 50px;
+    color: white;
+}
+
+/*<!-- Styles for the form container -->*/
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/*<!-- Styles for form groups and labels -->*/
+.form-group {
+    width: 100%;
+    display: flex;
+}
+
+label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-top: 15px;
+    flex: 1;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+/*<!-- Styles for input fields and textareas -->*/
+input[type="text"],
+input[type="email"],
+textarea,
+input[type="date"],
+input[type="file"] {
+    width: 65%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+/*<!-- Styles for checkbox and radio groups -->*/
+.checkbox-group {
+    display: flex;
+    justify-items: left;
+    justify-content: left;
+}
+
+.radio-group{
+    display: flex;
+    text-align: right;
+}
+
+.radio-group label,
+.checkbox-group label {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+/*<!-- Styles for star rating -->*/
+.rating {
+    margin-top: 15px;
+}
+
+.star {
+    font-size: 20px;
+    color: #ff9900;
+    cursor: pointer;
+}
+
+/*<!-- Styles for form buttons -->*/
+.form-buttons {
+    margin-top: 20px;
+}
+
+button[type="submit"],
+button[type="reset"] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button[type="reset"] {
+    background-color: #dc3545;
+}
+
+/*<!-- Styles for error messages -->*/
+.errors {
+    color: red;
+    margin-top: 10px;
+}
+
+/*<!-- Styles for terms and conditions link -->*/
+a {
+    margin-top: 10px;
+    padding-top: 10px;
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*<!-- Styles for file upload -->*/
+.custum-file-upload {
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    cursor: pointer;
+    justify-content: center;
+    border: 2px dashed #cacaca;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px rgba(0,0,0,0.1);
+}
+
+.custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65%;
+}
+
+.custum-file-upload .icon svg {
+    height: 80px;
+    fill: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload .text {
+    align-items: center;
+    justify-content: center;
+}
+
+.custum-file-upload .text span {
+    font-weight: 400;
+    color: rgba(75, 85, 99, 1);
+}
+
+.custum-file-upload input {
+    display: none;
+}

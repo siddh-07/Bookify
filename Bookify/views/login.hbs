@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="CSS/login.css">
+    <link rel="stylesheet" href="CSS/Navbar.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- ... Your existing head content ... -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const wrapper = document.querySelector('.wrapper');
+            const registerLink = document.querySelector('.register-link');
+            const loginLink = document.querySelector('.login-link');
+            const signup = document.getElementById('btn');
+
+            function click() {
+                wrapper.classList.add('active');
+            }
+
+            registerLink.onclick = click;
+
+            function click2() {
+                wrapper.classList.remove('active');
+            }
+            loginLink.onclick = click2;
+
+            // Get references to the form and the input fields
+            const btn = document.getElementById('btn')
+            const usernameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+
+            // Add an event listener to the form for form submission
+            btn.addEventListener('click', function (event) {
+                // Initialize a flag to track validation status
+                let isValid = true;
+
+                // Validate the username (you can add more rules)
+                if (usernameInput.value.length < 3) {
+                    isValid = false;
+                    alert('Username must be at least 3 characters long.');
+                }
+
+                // Validate the email using a simple regular expression
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(emailInput.value)) {
+                    isValid = false;
+                    alert('Please enter a valid email address.');
+                }
+
+                // Validate the password (you can add more rules)
+                if (passwordInput.value.length < 8) {
+                    isValid = false;
+                    alert('Password must be at least 8 characters long.');
+                }
+
+                // Prevent form submission if validation fails
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<div class="nav" style="display: block; top: 0">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="company-name" style="font-size: 75px; color: black">Bookify</span>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper">
+    <span class="bg-animate"></span>
+    <span class="bg-animate2"></span>
+
+    <div class="form-box login">
+        <h2 class="animation" style="--i:0; --j:21">Login</h2>
+        <form action="/login" method="post">
+            <div class="input-box animation" style="--i:1; --j:22">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box animation" style="--i:2; --j:23">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button type="submit" class="btn animation" style="--i:3; --j:24">Login</button>
+            <br>
+            <div class="center" style="display: flex; justify-content: center; align-items: center;justify-items: center;justify-self: center">
+                <button type="submit" class="btn animation" style="--i:3; --j:24;text-align: center" href="/auth/google">
+
+                    <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+                            height="50px"
+                            width="50px"
+                            alt="Google logo"
+                            href="/auth/google"
+                    />
+                    <a href="/auth/google" style="color: white">
+                        Login with Google
+                    </a></button>
+            </div>
+            <div class="logreg-link animation" style="--i:4; --j:25">
+                <p>Don't have an Account? <a href="#" class="register-link">Sign up</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="info-text login">
+        <h2 class="animation" style="--i:0; --j:20">Welcome</h2><br>
+        <p class="animation" style="--i:1; --j:21">"Safeguarding your literary world with the same dedication as a well-kept bookshelf."</p>
+    </div>
+
+    <div class="form-box register">
+        <h2 class="animation" style="--i:17">Sign Up</h2>
+        <form action="/register" method="post">
+            <div class="input-box animation" style="--i:18">
+                <input type="text"  id="name" name="name" required>
+                <label>Username</label>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box animation" style="--i:19">
+                <input type="email" id="email" name="email" required>
+                <label>Email</label>
+                <i class='bx bxs-envelope'></i>
+            </div>
+            <div class="input-box animation" style="--i:20">
+
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+            <button type="submit" class="btn animation" id="btn" style="--i:21">Sign Up</button>
+            <div class="logreg-link animation" style="--i:22">
+                <p>Already have an Account? <a href="#" class="login-link">Login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="info-text register">
+        <h2 class="animation" style="--i:17; --j:0">Welcome Back!</h2><br>
+        <p class="animation" style="--i:18; --j:1">Welcome to Bookify, the perfect haven for bookworms and literary explorers! Dive into a world of stories, imagination, and endless knowledge.</p>
+    </div>
+</div>
+</body>
+</html>

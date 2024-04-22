@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--    Stylesheet for Navigation-->
+    <link rel="stylesheet" href="CSS/Navbar.css"/>
+    <!--    Stylesheet for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <!--    Stylesheet for Contact Us Page-->
+    <link rel="stylesheet" href="CSS/ContactUs.css"/>
+    <!--    Stylesheet for Footer-->
+    <link rel="stylesheet" href="CSS/Footer.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--    Javascript for form validation-->
+    <script src="form_validation.js"></script>
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>-->
+
+    <title>Contact Us</title>
+</head>
+<body>
+
+<!--Navigation Bar-->
+<nav class="navbar">
+    <div class="logo">
+        <span class="company-name">Bookify</span>
+    </div>
+    <div class="icons">
+        <ul>
+            <li><a href="/home"><i class="fa fa-fw fa-home"></i><br/>Home</a></li>
+            <li><a href="/bookNav"><i class="fa fa-fw fa-book"></i><br/>Books</a></li>
+            <li><a class="active" href="/contact"><i class="fa fa-fw fa-envelope"></i><br/>Contact</a></li>
+            <li><a href="/profile"><i class='bx bxs-user'></i><br> Profile</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- About Us Section -->
+<section class="about-us-section">
+    <div class="about-us-image">
+    </div>
+    <div class="about-us-text">
+        <h2>About Us</h2>
+        <p>At Bookify, we're on a mission to celebrate the written word, foster
+            a love for reading, and connect book enthusiasts from around the
+            world. With a deep-rooted passion for literature and a commitment to
+            creating a literary haven, we've curated a virtual library like no
+            other.</p>
+        <p style="font-size: 30px"><b>Our Story</b></p>
+        <p>Founded by a team of avid readers and book lovers, Bookify was born
+            out of a shared vision to make the world of books more accessible,
+            engaging, and interactive. We understand the power of storytelling to
+            inspire, educate, and entertain, and we believe that every reader
+            deserves a place where they can explore, discover, and share their
+            love for books.</p>
+    </div>
+</section>
+
+<!-- Contact Us Section -->
+<section class="contact-us-section">
+    <div class="contact-form">
+        <h2>Contact Us</h2>
+
+        <section class="contact-us-section">
+            <div class="contact-form">
+                <h2>Contact Us</h2>
+                <form action="/contact" method="POST">
+                    <div class="form-group" style="justify-content: space-around; margin: 0;">
+                        <label for="firstname">First Name</label>
+                        <label for="lastname" style="text-align: left;">Last Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="firstName" id="firstname" value="{{formData.firstName}}" />
+                        {{#each errors}}
+                            {{#if (eq path "firstname")}}
+                                <small class="text-danger">{{msg}}</small>
+                            {{/if}}
+                        {{/each}}
+                        <input class="form-control" type="text" name="lastName" id="lastname" value="{{ formData.lastName}}"/>
+                        {{#each errors}}
+                            {{#if (eq path "lastName")}}
+                                <small class="text-danger">{{msg}}</small>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label for="phone">Phone</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="phone" id="phone" value="{{formData.phone}}" />
+                        {{#each errors}}
+                            {{#if (eq path "phone")}}
+                                <small class="text-danger">{{msg}}</small>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" id="email" value={{formData.email}}>
+                        {{#each errors}}
+                            {{#if (eq path "email")}}
+                                <small class="text-danger">{{msg}}</small>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <div class="form-group" style="margin: 0;">
+                        <label for="message">Message</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" id="message"></textarea>
+                        {{#each errors}}
+                            {{#if (eq path "message")}}
+
+
+                                <small class="text-danger">{{msg}}</small>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <input type="checkbox" name="rememberMe" id="rememberMe"> Remember Me
+                    <div class="form-buttons">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Clear</button>
+                    </div>
+                </form>
+
+
+                <h3>Connect with Us on Social Media</h3>
+                <p>Follow us on social media to stay updated with the latest book
+                    releases, promotions, and literary news:</p>
+                <ul>
+                    <li><a
+                            href="https://www.facebook.com/MooseJawLibrary/"
+                            style="color: white" target="_blank"
+                    ><i class="fa fa-fw fa-facebook"></i>Facebook</a></li>
+                    <li><a
+                            href="https://twitter.com/OpenLibrary"
+                            style="color: #007bff ; " target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a></li>
+                    <li><a
+                            href="https://www.instagram.com/librarymindset/"
+                            style="color: deeppink" target="_blank"
+                    ><i class="fa fa-fw fa-instagram"></i>Instagram</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p>If you have any questions or need assistance, please don't hesitate
+                    to get in touch with us. Our dedicated team is here to help you.</p>
+                <p>We look forward to hearing from you!</p>
+
+                <h3>Phone & Email</h3>
+                <p>Phone: +1 (555) 123-4567</p>
+                <p>Email: info@bookify.com</p>
+
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+
+                <h3>Visit Our Bookstore</h3>
+                <p>Feel free to visit our physical bookstore located at:</p>
+                <p>1234 Book Street</p>
+                <p>Readingville, Bookland</p>
+            </div>
+        </section>
+    </div>
+</section>
+</body>
+        <!--Footer-->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h2>Bookify</h2>
+                    <p>Your Gateway to a World of Captivating Stories</p>
+                    <p>&copy; 2023 Bookify</p>
+                </div>
+
+                <div class="footer-right">
+                    <div class="footer-nav">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/bookNav">Books</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-center">
+                    <div class="contact-info">
+                        <h3>Contact Us</h3>
+                        <p><a href="tel: +1 (555) 123-4567" style="color: white">Phone: +1
+                            (555) 123-4567</a></p>
+                        <p><a href="mailto:info@bookify.com" style="color: white">Email:
+                            info@bookify.com</a></p>
+                        <p>Address: 1234 Book Street, Readingville, Bookland</p>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+</html>

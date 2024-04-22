@@ -1,0 +1,166 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    background: url('../Images/Contact_Us-background-image.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff; /* Text color */
+    text-align: center;
+}
+
+/* Style the About Us section */
+.about-us-section {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.about-us-text {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-us-text h2 {
+    font-size: 50px;
+}
+
+.about-us-text p {
+    font-size: 20px;
+}
+
+.about-us-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.about-us-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Style the Contact Us section */
+.contact-us-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Style the Contact Info on the left side */
+.contact-info {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-info h2 {
+    font-size: 30px;
+    margin: 20px 20px 20px 0;
+}
+
+.contact-info p {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style the Contact Form on the right side */
+.contact-form {
+    flex: 1;
+    padding: 20px;
+    text-align: left;
+}
+
+.contact-form h2 {
+    font-size: 34px;
+    margin: 20px 20px 20px 0;
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group p{
+    font-size: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Style the Submit and Clear buttons */
+.form-buttons {
+    text-align: right;
+}
+
+.form-buttons button {
+    background-color: #007bff; /* Blue color for buttons */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.form-buttons button[type="reset"] {
+    background-color: #dc3545; /* Red color for the clear button */
+}
+
+.contact-form ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-form ul li {
+    margin-bottom: 5px;
+    font-size: 25px;
+    text-align: center;
+}
+
+.contact-form ul li a {
+    text-decoration: none;
+}
+
+/* Add error message styling for input fields with errors */
+.form-group input::after,
+.form-group textarea::after {
+    content: attr(data-error); /* Display the error message */
+    color: #dc3545; /* Red color for error messages */
+    font-size: 14px;
+    display: block;
+    margin-top: 5px; /* Adjust the spacing between input and error message */
+}
+
+/* Hide error messages by default and show them when there's an error */
+.form-group input::after,
+.form-group textarea::after {
+    display: none;
+}
+
+/* Style the error message for visible validation errors */
+.form-group input:invalid::after,
+.form-group textarea:invalid::after {
+    display: block;
+}
+
+.text-danger{
+    color: red;
+    font-size: 16px;
+}

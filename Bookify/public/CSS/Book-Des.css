@@ -1,0 +1,72 @@
+/* styles.css */
+
+.button-row {
+    justify-content: space-between;
+    align-items: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: url('../Images/Book-background-image.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.back-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: color 0.3s ease; /* Add a smooth transition for color */
+    padding: 0;
+}
+
+/* Hover state styles for the back button */
+.back-button:hover {
+    color: blue; /* Change text color on hover */
+}
+
+.book-image {
+    max-width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.book-description {
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.container-fluid{
+    min-height: 60vh; /* Make the form container at least as tall as the viewport */
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 1000px; /* Limit the form width for better readability */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Normal state styles for the review button */
+.review-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease; /* Add a smooth transition */
+}
+
+/* Hover state styles for the review button */
+.review-button:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}

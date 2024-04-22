@@ -1,0 +1,73 @@
+/* Style the footer */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Make the body at least the height of the viewport */
+    margin: 0;
+}
+
+main {
+    flex-grow: 1; /* Allow the main content to grow and push the footer to the bottom */
+}
+
+.footer {
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Text color */
+    padding: 20px 0;
+    text-align: center;
+    /*position: absolute;*/
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+/* Style the footer sections */
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    text-align: center;
+    display: flex;
+    /*flex-direction: column; !* Vertically align content *!*/
+    justify-content: center; /* Center content vertically */
+}
+
+.footer-section h2,
+.footer-section h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.contact-info h3,
+.footer-nav h3 {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+}
+
+.footer-nav ul li a:hover {
+    text-decoration: underline;
+}

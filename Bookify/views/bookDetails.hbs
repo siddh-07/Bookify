@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{book.title}}</title>
+    <link rel="stylesheet" href="../public/CSS/Book-Des.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* styles.css */
+
+        .button-row {
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: no-repeat center center fixed;
+            background-image: url("/Images/Book-background-image.png") ;
+            background-size: cover;
+        }
+
+        .back-button {
+            background-color: transparent;
+            color: black;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: color 0.3s ease; /* Add a smooth transition for color */
+            padding: 0;
+        }
+
+        /* Hover state styles for the back button */
+        .back-button:hover {
+            color: blue; /* Change text color on hover */
+        }
+
+        .book-image {
+            max-width: 300px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        .book-description {
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        .container-fluid{
+            min-height: 60vh; /* Make the form container at least as tall as the viewport */
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 1000px; /* Limit the form width for better readability */
+            margin: 0 auto; /* Center the form horizontally */
+            overflow-y: auto;
+        }
+
+        /* Normal state styles for the review button */
+        .review-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: background-color 0.3s ease; /* Add a smooth transition */
+        }
+
+        /* Hover state styles for the review button */
+        .review-button:hover {
+            background-color: #0056b3; /* Change background color on hover */
+        }
+    </style>
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="button-row">
+        <a href="/bookNav"><button class="back-button" id="back-button"><h4>Back</h4></button></a>
+        <h1 style="padding: 15px 15px 15px 0;">
+            {{book.title}}
+        </h1>
+    </div>
+
+    {{#if book}}
+        <div class="row">
+            <div class="col-md-4">
+                {{#if book.covers.[0]}}
+                    <img src="https://covers.openlibrary.org/b/id/{{book.covers.[0]}}-L.jpg" class="card-img-top" alt="Book Cover">                {{else}}
+                    <img src="/Images/cover_not_found.jpg" class="card-img-top" alt="Default Cover">
+                {{/if}}
+            </div>
+            <div class="col-md-8">
+                <h2 style="padding: 15px 15px 15px 0;">Description</h2>
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <p class="card-text"> Subject Places: {{book.subject_places}}</p>
+                    <p class="card-text">Subjects: {{book.subjects}}</p>
+                    <p class="card-text">Description: {{book.dicription.value}}</p>
+                </div>
+                <a href="/submit-review"><button class="review-button" id="review-button" >Review</button></a>
+            </div>
+        </div>
+    {{/if}}
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="\CSS/Navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/Profile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>Profile </title>
+</head>
+<body>
+<!--Navigation Bar-->
+<nav class="navbar">
+    <div class="logo">
+        <span class="company-name" >Bookify</span>
+    </div>
+    <div class="icons">
+        <ul>
+            <li><a href="/home"><i class="fa fa-fw fa-home"></i><br> Home</a></li>
+            <li><a  class="active" href="/bookNav"><i class="fa fa-fw fa-book"></i><br> Books</a></li>
+            <li><a href="/contact"><i class="fa fa-fw fa-envelope"></i><br> Contact</a></li>
+            <li><a href="/profile"><i class='bx bxs-user'></i><br> Profile</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <div class="profile-container">
+        <div class="user-info-container">
+            <div class="user-photo" style="display: flex; flex-direction: column">
+                <div>
+                    <img src="{{user.img}}" >
+                </div>
+                <br><br><br>
+                <div>
+                    <form action="/update-profile-picture" method="POST" enctype="multipart/form-data" style="display: flex; flex-direction: row">
+                        <input type="file" name="profilePicture" id="profilePicture">
+                        <button type="submit">Upload</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="user-details" style="justify-items: center;">
+                <p><strong>Name: <br>{{user.name}}</strong></p>
+                <p style="font-size: 22px"></p>
+                <p><strong>Email: <br>{{user.email}}</strong></p>
+                <p style="font-size: 22px"></p>
+                <a href="/logout" class="logout-button" style="color: #ffffff">Logout</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="recent-activity">
+        <div class="recent">
+            <h2><i class="fa fa-fw fa-star"></i>Recent Activity</h2>
+        </div>
+            {{#each userActivities}}
+                <div class="activity">
+                        <p><b> {{this.name}} </b></p>
+                        <p>Date: {{this.date}}</p>
+                        <p>Time: {{this.time}}</p>
+                        <p>URL:  <a href="{{this.url}}">{{this.url}}</a></p>
+                        <p>Description: {{this.description}}</p>
+                </div>
+            {{/each}}
+        </div>
+</main>
+</body>
+</html>
+

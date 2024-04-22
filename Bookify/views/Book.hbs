@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--    Stylesheet for Navigation bar-->
+    <link rel="stylesheet" href="CSS/Navbar.css">
+    <!--    Stylesheet for Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--    Stylesheet for Books-->
+    <link rel="stylesheet" href="CSS/Book.css">
+    <!--    Stylesheet for footer-->
+    <link rel="stylesheet" href="CSS/Footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Books</title>
+    <style>
+        .loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+
+
+        }
+
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!--Navigation Bar-->
+<nav class="navbar">
+    <div class="logo">
+        <span class="company-name">Bookify</span>
+    </div>
+    <div class="icons">
+        <ul>
+            <li><a href="/home"><i class="fa fa-fw fa-home"></i><br> Home</a></li>
+            <li><a class="active" href="/bookNav"><i class="fa fa-fw fa-book"></i><br> Books</a></li>
+            <li><a href="/contact"><i class="fa fa-fw fa-envelope"></i><br> Contact</a></li>
+            <li><a href="/Profile"><i class='bx bxs-user'></i><br> Profile</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <section class="search-section">
+
+        <div class="search-bar">
+            <form action="/search" method="GET" id="search-form">
+                <input type="text" id="search" name="query" placeholder="Enter a search term" value="{{query}}">
+                <div class="dropdown">
+                    <select name="sort" id="sort" value="{{sort}}" style="background-color: #333;
+                                                                        color: white;
+                                                                        border: none;
+                                                                        border-radius: 5px;
+                                                                        padding: 10px;
+                                                                        cursor: pointer;
+                                                                        width: 100%;
+                                                                        font-size: 16px;"
+                    >
+                        <option value="title">Title</option>
+                        <option value="year">Year</option>
+                        <option value="author">Author</option>
+                        <option value="edition">Edition</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<div id="loading-spinner" class="loading-spinner"></div>
+
+<div class="books" style="justify-content: center" id="books" style="display: block">
+    <div class="row">
+
+
+        {{#each searchResults}}
+            <div class="col-md-4 mb-4" style="flex: 0.2" id="book">
+                <a href="/detail/{{this.key}}">
+                    <div class="book" style="flex: 0.2">
+                        {{#if this.cover_i}}
+                            <img src="https://covers.openlibrary.org/b/id/{{this.cover_i}}-L.jpg" class="card-img-top"
+                                 alt="Book Cover">
+                        {{else}}
+                            <img src="/Images/cover_not_found.jpg" class="card-img-top" alt="Default Cover">
+                        {{/if}}
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Title: {{this.title}}</b></h5>
+                            <p class="card-text"><b>Author: {{this.author_name}}</b></p>
+                            <p class="card-text"><b>Year: {{this.first_publish_year}}</b></p>
+                            <p class="card-text"><b></b>Editions: {{this.edition_count}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {{/each}}
+
+    </div>
+</div>
+
+
+<!--Footer-->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-left">
+            <h2>Bookify</h2>
+            <p>Your Gateway to a World of Captivating Stories</p>
+            <p>&copy; 2023 Bookify</p>
+        </div>
+
+        <div class="footer-right">
+            <div class="footer-nav">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/bookNav">Books</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-center">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><a href="tel: +1 (555) 123-4567" style="color: white">Phone: +1 (555) 123-4567</a></p>
+                <p><a href="mailto:info@bookify.com" style="color: white">Email: info@bookify.com</a></p>
+                <p>Address: 1234 Book Street, Readingville, Bookland</p>
+            </div>
+        </div>
+    </div>
+</footer
+>
+<script>
+    // Get the form and elements
+    const searchForm = document.getElementById('search-form');
+    const searchInput = document.getElementById('search');
+    const sortSelect = document.getElementById('sort');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const book = document.getElementById('book');
+    const bookList = document.getElementById('books')
+    // Initialize searchForm.timeout
+    searchForm.timeout = 0;
+    hideLoadingSpinner();
+    searchForm.addEventListener('submit', (event) => {
+        preventDefault();
+
+    });
+
+    // Add event listeners to search input and sort select
+    searchInput.addEventListener('input', () => {
+        clearTimeout(searchForm.timeout);
+        searchForm.timeout = setTimeout(() => {
+            showLoadingSpinner();
+            searchForm.submit();
+        }, 3500); // Adjust the delay as needed
+
+    });
+    sortSelect.addEventListener('change', () => {
+        // Automatically submit the form when the sort select changes
+        showLoadingSpinner();
+        searchForm.submit();
+    });
+    /// document.querySelectorAll("a").forEach((bookLink) => {
+    book.addEventListener("click", (event) => {
+        showLoadingSpinner(); // Show the loading spinner when a book link is clicked
+        clearTimeout(searchForm.timeout);
+        searchForm.timeout = setTimeout(() => {
+            showLoadingSpinner();
+            //searchForm.submit();
+        }, 1500); // Adjust the delay as needed
+
+
+    });
+
+    // Add a function to show the loading spinner
+    function showLoadingSpinner() {
+        bookList.style.display = 'none';
+        loadingSpinner.style.display = 'block';
+    }
+
+    // Add a function to hide the loading spinner
+    function hideLoadingSpinner() {
+        bookList.style.display = 'block';
+        loadingSpinner.style.display = 'none';
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.0); /* Semi-transparent white background */
+    color: white;
+    padding: 20px 40px;
+    margin: 20px 20px; /* Add margin for spacing */
+    transition: background-color 1s ease; /* Add transition for background color */
+}
+
+/* Style the logo */
+.logo {
+    display: flex; /* Make the logo section a flex container */
+    align-items: center; /* Center vertically */
+}
+
+.logo img {
+    width: 150px;
+    height: 150px;
+    margin-right: 10px;
+}
+
+.company-name {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 5px; /* Add a small margin to separate logo and name */
+}
+
+/* Style the icons and their names */
+.icons ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.icons li {
+    margin: 0 15px; /* Adjust spacing between icons */
+    text-align: center;
+    transition: all 1.2s ease; /* Add transition effect */
+}
+
+.icons a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: 14px;
+}
+
+.icons i {
+    font-size: 30px;
+    margin-bottom: 5px; /* Space between icon and text */
+}
+
+/* Add hover effect */
+.icons li:hover {
+    color: rgb(128, 128, 128);
+    transform: scale(1.5); /* Scale the icon on hover */
+}
+
+

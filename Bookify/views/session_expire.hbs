@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Session Expired</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://static.ffx.io/images/$zoom_0.384%2C$multiply_0.9735%2C$ratio_1.5%2C$width_756%2C$x_0%2C$y_0/t_crop_custom/q_86%2Cf_auto/23aebcc30ce72a57278086c1a901ec0d6c1d0919") no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .message-container {
+      text-align: center;
+    }
+
+    .message {
+      font-family: "Times New Roman", sans-serif; /* Replace with your unique font */
+      font-weight: bold;
+      font-size: 40px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Add text shadow */
+    }
+
+    .login-link {
+      font-family: "Times New Roman", sans-serif; /* Replace with your unique font */
+      text-decoration: none;
+      background: transparent;
+      font-size: 20px;
+      display: block; /* Change to block element for centering */
+      margin: 0 auto; /* Horizontal centering using margin */
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease-in-out;
+      height: auto;
+      width: fit-content;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 1); /* Add text shadow */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 1);
+    }
+
+    .login-link a{
+      color: white;
+    }
+
+    .login-link a:hover{
+      color: red;
+    }
+
+    .login-link:hover{
+      font-size: 25px;
+      transition: all 0.5s; /* Add a transition for smooth effect */
+    }
+
+
+
+  </style>
+</head>
+<body>
+<div class="message-container">
+  <p class="message">Session is expired</p>
+  <button class="login-link" ><a href="/login">Login Again...</a></button>
+</div>
+</body>
+</html>
